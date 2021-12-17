@@ -8,7 +8,7 @@ header:
 <!--Title-->
 <div class="row t10">
     <div class="breadcrumbs">
-    <a href="{{ site.url }}{{ site.baseurl }}/works/">&#171; All Works</a>
+    <a href="{{ site.url }}{{ site.baseurl }}/works/">&#171; Back to Works</a>
     </div>
     <div class="medium-8 columns medium-push-4">
         <header>
@@ -86,7 +86,10 @@ header:
                 </li>
                 {% endif %}
                 {% if page.score_url %}
-                <li style="text-align: center;"><a href="#" onclick="MyWindow=window.open('{{ page.score_url }}','MyWindow','toolbar=no,location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width=1000, height=650'); return false;" id="yui_3_10_1_1_1399924008830_533" target="_blank" class="button tiny expand score" style="margin-bottom: 0; margin-top: 10px;"><strong>View Score ›</strong></a></li>
+                <li style="text-align: center;"><a href="#" onclick="MyWindow=window.open('{{ page.score_url }}','MyWindow','toolbar=no,location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width=1000, height=650'); return false;" id="yui_3_10_1_1_1399924008830_533" target="_blank" class="button tiny expand score" style="margin-bottom: 0; margin-top: 10px;"><strong>View Score on Issuu ›</strong></a></li>
+                {% endif %}
+                {% if page.score_download %}
+                <li style="text-align: center;"><a href="{{ site.url }}{{ site.baseurl }}/downloads/{{ page.score_download }}" download class="button tiny expand score" style="margin-bottom: 0; margin-top: 10px;"><strong>Download Score ›</strong></a></li>
                 {% endif %}
             </ul>
         </div>
