@@ -1,0 +1,107 @@
+---
+layout: default
+format: works
+header:
+    image_fullwidth_staff: ravaei_header.png
+---
+
+<!--{% include _breadcrumb.html %}-->
+
+<div class="row t20">
+    <div class="medium-8 columns {% if page.sidebar == NULL %} medium-offset-2 end{% endif %}{% if page.sidebar == "left" %} medium-push-4{% endif %} b30">
+            <header>
+                {% if page.image.title %}
+                <figure>
+                    <img src="{{ site.urlimg }}{{ page.image.title }}" width="970" alt="{{ page.title | escape_once }}" itemprop="image">
+
+                    {% if page.image.caption_url and page.image.caption %}
+                    <figcaption class="text-right">
+                        <a href="{{ page.image.caption_url }}">{{ page.image.caption }}</a>
+                    </figcaption>
+                    {% elsif page.image.caption %}
+                    <figcaption class="text-right">
+                        {{ page.image.caption }}
+                    </figcaption>
+                    {% endif %}
+                </figure>
+                {% endif %}
+
+                <div itemprop="name">
+                    {% if page.subheadline %}<p class="subheadline">{{ page.subheadline }}</p>{% endif %}
+                    <h1>{{ page.title }}</h1>
+                </div>
+            </header>
+
+
+            {% if page.teaser %}
+            <p class="teaser" itemprop="description">
+                {{ page.teaser }}
+            </p>
+            {% endif %}
+
+            <div itemprop="articleSection">
+                {{ content }}
+            </div>
+
+            {% if page.show_meta == true %}
+            {% include _meta_information.html %}
+            {% endif %}
+
+            {% if page.comments == true %}
+            {% include _comments.html %}
+            {% endif %}
+    </div><!-- /.medium-8.columns -->
+
+
+    {% if page.sidebar == "right" %}
+    <div class="medium-4 columns">
+        <aside>
+            <div class="panel radius">
+                <h3>Categories</h3>
+                {% assign already_printed = "" | split: "" %}
+                {% assign sorted_post = "" | split: "" %}
+                {% for post in site.works %}
+                {% unless already_printed contains post.category_music %}
+                {%- assign sorted_post = sorted_post | push: post.category_music %}
+                {%- assign already_printed = already_printed | push: post.category_music %}
+                {% endunless %}
+                {% endfor %}
+                {%- assign sorted_post = sorted_post | sort: title %}
+                <ul class="no-bullet">
+                  {% if page.subheadline != "All" %}
+                  <li><strong><a href="{{ site.url }}{{ site.baseurl }}/works">All Works</a></strong></li>
+                  {% endif %}
+                {% for category in sorted_post %}
+                    <li><strong><a href="{{ site.url }}{{ site.baseurl }}/works-{{ category | replace: " ", "-" | replace: "&amp;", "and" | downcase}}/">{{ category }}</a></strong></li>
+                {% endfor %}
+                </ul>
+                
+            </div>
+            <div>
+              <h4>Featured Audio</h4>
+              {% for item in site.data.featuredworks %}
+              {% for work in site.works %}
+              {% if work.title == item.featured-audio %}
+              {% if work.youtube %}
+              {% for link in work.youtube limit: 1 %}
+              <p style="margin-bottom:10px;"><a href="{{ site.url }}{{ site.baseurl }}{{ work.url }}" title="{{ work.title }}"><b>{{ work.title }}</b></a><span style="color: dimgray"> for {{work.instrumentation}}</span></p>
+              <div class="center flex-video widescreen vimeo" style="margin-bottom:20px;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ link.url-code }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              {% endfor %}
+              {% elsif work.soundcloud %}
+              <p style="margin-bottom:0px;"><a href="{{ site.url }}{{ site.baseurl }}{{ work.url }}" title="{{ work.title }}"><b>{{ work.title }}</b></a><span style="color: dimgray"> for {{work.instrumentation}}</span></p>
+              {% for thing in work.soundcloud limit: 1 %}
+              <iframe style="margin-top:10px; margin-bottom: 20px;" width="100%" height="150" scrolling="no" frameborder="no" src="{{ thing.url }}"></iframe>
+              {% endfor %}
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+              {% endfor %}
+            </div>
+        </aside>
+    </div><!-- /.medium-4.columns -->
+    {% endif %}
+</div><!-- /.row -->
+</div>
+</div>

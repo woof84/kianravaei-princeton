@@ -1,0 +1,15 @@
+- title: "About"
+  url: "/about/"
+  side: right
+
+- title: "Works"
+  url: "/works/"
+  side: right
+
+- title: "Performances"
+  url: "/performances/"
+  side: right
+
+- title: "Contact"
+  url: "/contact/"
+  side: right

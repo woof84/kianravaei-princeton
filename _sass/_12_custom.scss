@@ -1,0 +1,61 @@
+/* Masthead › small-only
+------------------------------------------------------------------- */
+
+@media #{$small-only} {
+    #masthead {
+        height: 300px;
+    }
+    #masthead-staff {
+        height: 100px;
+    }
+    #masthead-performances {
+        height: 100px;
+    }
+}
+
+/* Masthead › medium-only
+------------------------------------------------------------------- */
+
+@media #{$medium-only} {
+    #masthead {
+        height: 450px;
+    }
+    #masthead-staff {
+        height: 100px;
+    }
+    #masthead-performances {
+        height: 100px;
+    }
+}
+
+/* Masthead › large-only
+------------------------------------------------------------------- */
+
+@media #{$large-only} {
+    #masthead {
+        height: 600px;
+    }
+    #masthead-staff {
+        height: 150px;
+    }
+    #masthead-performances {
+        height: 150px;
+    }
+}
+
+
+/* Masthead › xlarge-up
+------------------------------------------------------------------- */
+
+@media #{$xlarge-up} {
+    #masthead {
+        height: 600px;
+    }
+    #masthead-staff {
+        height: 150px;
+    }
+    #masthead-performances {
+        height: 150px;
+    }
+}
+

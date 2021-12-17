@@ -1,0 +1,118 @@
+<!--change this to an include so it doesn't show up on homepage-->
+
+<div id="up-to-top" class="row">
+      <div class="small-12 columns" style="text-align: right;">
+        <a class="iconfont" href="#top-of-page">&#xf108;</a>
+      </div><!-- /.small-12.columns -->
+    </div><!-- /.row -->
+
+<footer id="footer-content" class="bg-grau">
+
+    <!--delete comments on right for larger footer-->
+    
+     
+
+
+    <div id="footer">
+        <div class="row">
+            <div class="medium-6 large-5 columns">
+                <h5 class="shadow-black">About</h5>
+
+                <p class="shadow-black">
+                    <strong>Kian Ravaei</strong> composes music that delivers bold melodies, heartfelt directness, and visceral power. His growing body of work has often been praised for combining rigorous compositional technique with naturalness and penetrating emotion.
+                    <a href="{{ site.url }}{{ site.baseurl }}/about/">{{ site.data.language.more }}</a>
+                </p>
+            </div><!-- /.large-6.columns -->
+
+            <!--Featured Works-->
+
+            <div class="small-6 medium-3 large-3 large-offset-1 columns">
+                <h5 class="shadow-black">Featured Works</h5>
+
+                <ul class="no-bullet shadow-black">
+                    {% for item in site.data.featuredworks %}
+                    {% for work in site.works %}
+                    {% if work.title == item.featured-work %}
+                    <li>
+                        <a href="{{ site.url }}{{ site.baseurl }}{{ work.url }}" title="{{ work.title }}">{{ work.title }}</a> for {{work.instrumentation}}
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                    <li><a href="{{ site.url }}{{ site.baseurl }}/works/" style="float:right;">All Works ›</a></li>
+                </ul>
+            </div><!-- /.large-4.columns -->
+
+            <!--Performances-->
+
+            <div class="small-6 medium-3 large-3 columns">
+                <h5 class="shadow-black">Concerts</h5>
+
+                <ul class="no-bullet shadow-black">
+                    {% for page in site.pages %}
+                    {% if page.title == "Performances" %}
+                    {% capture now %}{{'now' | date: '%s' | plus: 0 }}{% endcapture %}
+                    {% for item in page.performances reversed %}
+                    {% assign not-title = NULL %}
+                    {% capture date %}{{item.performance_date | date: '%s' | plus: 0 }}{% endcapture %}
+                    {% if date > now %}
+                    
+                    <li><strong>{{ item.performance_date }}</strong></li>
+                    {% for work in site.works %}
+                    {% if item.performance_title contains work.title %}
+                    {% capture not-title %}
+                    {{ item.performance_title | remove: work.title }}
+                    {% endcapture %}
+                    <li><a href="{{ site.url }}{{ site.baseurl }}{{ work.url }}">{{ work.title }}</a>{{not-title}}</li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if not-title == NULL %}
+                    <li>{{ item.performance_title }}</li>
+                    {% endif %}
+                    {% if item.venue %}
+                    <li>{{ item.venue }}</li>
+                    {% endif %}
+                    {% if item.city_state %}
+                    <li>{{ item.city_state }}</li>
+                    {% endif %}
+                    {% if item.performers %}
+                    <li>{{ item.performers }}</li>
+                    {% endif %}
+                    {% if item.url %}
+                    <li><a href="{{ item.url }}" target="_blank">More information ›</a></li>
+                    {% endif %}
+                    {% break %}
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
+                    <li><a href="{{ site.url }}{{ site.baseurl }}/performances/" style="float:right;">All Concerts ›</a></li>
+                </ul>
+            </div><!-- /.large-3.columns -->
+          <!-- lightweight - doesn't let you click other parts of header -->
+          <!--<div class="small-12 small-centered columns">
+            <h5 class="shadow-black">Latest Posts</h5>
+            <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/694add8b617155cd9441445926c052f6.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+          </div>-->
+        </div><!-- /.row -->
+
+    </div><!-- /#footer -->
+
+    <!--Subfooter-->
+
+    <div id="subfooter">
+        <nav class="row">
+            <section id="subfooter-left" class="small-12 medium-6 columns credits">
+                <p>© {{ 'now' | date: "%Y" }} by Kian Ravaei. All Rights Reserved.</p>
+            </section>
+
+            <section id="subfooter-right" class="small-12 medium-6 columns">
+                <ul class="inline-list social-icons">
+                    {% for social_item in site.data.socialmedia %}
+                    <li><a href="{{ social_item.url }}" target="_blank" class="{{ social_item.class }}" title="{{ social_item.title }}"></a></li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </nav>
+    </div><!-- /#subfooter -->
+</footer>

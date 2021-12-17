@@ -1,0 +1,25 @@
+---
+layout: compress
+---
+<!doctype html>
+<html class="no-js" lang="{% if site.language == nil %}en{% else %}{{ site.language }}{% endif %}">
+<head>
+	{% include _head.html %}
+</head>
+<body id="top-of-page" class="{{ layout.format }}">
+	{% unless page.skip_boilerplate %}
+	{% include _navigation.html %}
+	{% endunless %}
+
+	{% if page.homepage == true %}
+	{% include alert info='<center>Need music engraving services? <b><a href="/music-engraving/">All Services ›</a></b></center>' %}
+	{% endif %}
+
+	{% include _masthead.html %}
+	{{ content }}
+    
+    {% include _footer-index.html %}
+
+	{% include _footer_scripts.html %}
+</body>
+</html>

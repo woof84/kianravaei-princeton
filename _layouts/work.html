@@ -1,0 +1,218 @@
+---
+layout: default
+format: work
+header:
+    image_fullwidth_staff: ravaei_header.png
+---
+
+<!--Title-->
+<div class="row t10">
+    <div class="breadcrumbs">
+    <a href="{{ site.url }}{{ site.baseurl }}/works/">&#171; All Works</a>
+    </div>
+    <div class="medium-8 columns medium-push-4">
+        <header>
+            <div itemprop="name">
+                <h1>{{ page.title }}</h1>
+                {% if page.subheadline %}<p class="subheadline">{{ page.subheadline }}</p>{% endif %}
+            </div>
+        </header>
+
+<!--Text content-->
+        <div>
+            {{ content }}
+        </div>
+      
+        <!--Video-->
+        
+        {% for item in page.youtube %}
+        {% if item.url-code %}
+        <div class="center flex-video widescreen vimeo">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ item.url-code }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <!--Soundcloud-->
+
+        {% for item in page.soundcloud %}
+        {% if item.url %}
+        <iframe width="100%" height="200" scrolling="no" frameborder="no" src="{{ item.url }}"></iframe>
+        {% endif %}
+        {% endfor %}
+
+    </div><!-- /.medium-8.columns -->
+
+
+    <!--Details-->
+
+    <div class="medium-4 columns medium-pull-8">
+        <div class="panel radius">
+            <h3>Details</h3>
+            {% if page.instrumentation %}
+            <ul class="no-bullet">
+                <li>For {{ page.instrumentation }}</li>
+                {% endif %}
+                {% if page.category_music %}
+                <li><strong>Category:</strong> {{ page.category_music }}</li>
+                {% endif %}
+                {% if page.year_composed %}
+                <li><strong>Year Composed:</strong> {{ page.year_composed }}</li>
+                {% endif %}
+                {% if page.duration %}
+                <li><strong>Duration: </strong>{{ page.duration }}</li>
+                {% endif %}
+                {% if page.orchestration %}
+                <li><strong>Orchestration:</strong> {{ page.orchestration }}</li>
+                {% endif %}
+                {% if page.commissioner %}
+                <li><strong>Commissioner:</strong> {{ page.commissioner}}</li>
+                {% endif %}
+                {% if page.text_writer %}
+                <li><strong>Text Writer:</strong> {{ page.text_writer }}</li>
+                {% endif %}
+                {% if page.language %}
+                <li><strong>Language:</strong> {{ page.language }}</li>
+                {% endif %}
+                {% if page.movements %}
+                <li><strong>Movements:</strong>
+                    <ul class="no-bullet">
+                        {% for item in page.movements %}
+                        {% if item.movement %}
+                        <li style="padding-left: 2em;text-indent: -2em;">{{ item.movement }}</li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endif %}
+                {% if page.score_url %}
+                <li style="text-align: center;"><a href="#" onclick="MyWindow=window.open('{{ page.score_url }}','MyWindow','toolbar=no,location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width=1000, height=650'); return false;" id="yui_3_10_1_1_1399924008830_533" target="_blank" class="button tiny expand score" style="margin-bottom: 0; margin-top: 10px;"><strong>View Score ›</strong></a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <!--Purchase-->
+        {% if page.purchase %}
+        <div class="panel radius">
+            <h3>Purchase</h3>
+            <ul class="no-bullet">
+                {% for product in page.purchase %}
+                {% if product.title %}
+                <li {% if forloop.first == false %} style="margin-top: 20px;" {% endif %}><strong>{{ product.title }}</strong></li>
+                {% endif %}
+                {% if product.price %}
+                <li>{{ product.price }}</li>
+                {% endif %}
+                {% if product.product-key %}
+                <li style="text-align: center;"><a style="margin-bottom: 0; margin-top: 10px;" href="https://payhip.com/b/{{ product.product-key }}" class="payhip-add-to-cart-button button tiny expand score" data-theme="none" data-product="{{ product.product-key }}"><strong>Add to Cart ›</strong></a></li>
+                {% endif %}
+                {% if product.link %}
+                <li style="text-align: center;"><a style="margin-bottom: 0; margin-top: 10px;" href="{{ product.link }}" class="button tiny expand score" target="_blank"><strong>Buy Now ›</strong></a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!--Awards-->
+
+        {% if page.awards %}
+        <div class="panel radius">
+            <h3>Awards</h3>
+            {% for item in page.awards %}
+            <ul class="no-bullet">
+            <li><strong>{{ item.award_year }}</strong></li>
+                {% if item.award_title %}
+                <li>
+                {% if item.award_url %}
+                <a href="{{ item.award_url }}" target="_blank">
+                {% endif %}
+                {{ item.award_title }}
+                {% if item.award_url %}
+                </a>
+                {% endif %}
+                </li>
+                {% endif %}
+                {% if item.award_rank %}
+                <li><i>{{ item.award_rank }}</i></li>
+            {% endif %}
+            </ul>
+            {% endfor %}
+        </div>
+        {% endif %}
+      
+        <!--Press-->
+        {% assign haspress = false %}
+        {% for entry in site.data.press %}
+            {% if entry.piece == page.title %}
+              {% assign haspress = true %}
+            {% endif %}
+        {% endfor %}
+        {% if haspress == true %}
+        <div class="panel radius">
+            <h3>Press</h3>
+            {% for item in site.data.press %}
+            {% if item.piece == page.title %}
+              <ul class="no-bullet">
+              <li><strong>{{ item.date }}</strong></li>
+                {% if item.title %}
+                <li>
+                {% if item.link %}
+                <a href="{{ item.link }}" target="_blank">
+                {% endif %}
+                {{ item.title }}
+                {% if item.link %}
+                </a>
+                {% endif %}
+                </li>
+                {% endif %}
+                {% if item.author %}
+                <li>{{ item.author }},
+                {% else %}
+                <li>
+                {% endif %}
+                {% if item.publication %}
+                <i> {{ item.publication }}</i></li>
+                {% endif %}
+            {% endif %}
+          </ul>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!--Performances-->
+
+        {% for search in site.pages %}
+        {% if search.title == "Performances" %}
+        {% for item in search.performances %}
+        {% if item.performance_title contains page.title %}
+        <div class="panel radius">
+            <h3>Performances</h3>
+            {% break %}
+            {% endif %}
+            {% endfor %}
+            {% for item in search.performances %}
+            {% if item.performance_title contains page.title %}
+            <ul class="no-bullet">
+                <li><strong>{{ item.performance_date }}</strong></li>
+                {% if item.performance_title %}
+                <li>{{ item.performance_title }}</li>
+                {% endif %}
+                {% if item.venue %}
+                <li>{{ item.venue }}</li>
+                {% endif %}
+                {% if item.city_state %}
+                <li>{{ item.city_state }}</li>
+                {% endif %}
+                {% if item.performers %}
+                <li>{{ item.performers }}</li>
+                {% endif %}
+            </ul>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </div>
+
+    </div><!-- /.row -->
+</div>
