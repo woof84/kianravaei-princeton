@@ -14,6 +14,7 @@ youtube:
 soundcloud: 
  - url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1078662487&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true
  - url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1078662880&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true
+hide: yes
 ---
 
 _Prelude and Fugue in C-Sharp_ was written for Stefano Greco, a renowned Bach scholar and interpreter of Bach’s keyboard music. Bach started his Well-Tempered Clavier with the key of C, so I thought I would begin with C-sharp, close to Bach but different. The funereal prelude flirts with the key of C-sharp, while the life-affirming fugue proclaims C-sharp with childlike enthusiasm.

@@ -54,50 +54,11 @@ header:
 
 
     {% if page.sidebar == "right" %}
-    <div class="medium-4 columns">
+    <div class="medium-6 columns">
         <aside>
             <div class="panel radius">
-                <h3>Categories</h3>
-                {% assign already_printed = "" | split: "" %}
-                {% assign sorted_post = "" | split: "" %}
-                {% for post in site.works %}
-                {% unless already_printed contains post.category_music %}
-                {%- assign sorted_post = sorted_post | push: post.category_music %}
-                {%- assign already_printed = already_printed | push: post.category_music %}
-                {% endunless %}
-                {% endfor %}
-                {%- assign sorted_post = sorted_post | sort: title %}
-                <ul class="no-bullet">
-                  {% if page.subheadline != "All" %}
-                  <li><strong><a href="{{ site.url }}{{ site.baseurl }}/works">All Works</a></strong></li>
-                  {% endif %}
-                {% for category in sorted_post %}
-                    <li><strong><a href="{{ site.url }}{{ site.baseurl }}/works-{{ category | replace: " ", "-" | replace: "&amp;", "and" | downcase}}/">{{ category }}</a></strong></li>
-                {% endfor %}
-                </ul>
-                
-            </div>
-            <div>
-              <h4>Featured Audio</h4>
-              {% for item in site.data.featuredworks %}
-              {% for work in site.works %}
-              {% if work.title == item.featured-audio %}
-              {% if work.youtube %}
-              {% for link in work.youtube limit: 1 %}
-              <p style="margin-bottom:10px;"><a href="{{ site.url }}{{ site.baseurl }}{{ work.url }}" title="{{ work.title }}"><b>{{ work.title }}</b></a><span style="color: dimgray"> for {{work.instrumentation}}</span></p>
-              <div class="center flex-video widescreen vimeo" style="margin-bottom:20px;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ link.url-code }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-              {% endfor %}
-              {% elsif work.soundcloud %}
-              <p style="margin-bottom:0px;"><a href="{{ site.url }}{{ site.baseurl }}{{ work.url }}" title="{{ work.title }}"><b>{{ work.title }}</b></a><span style="color: dimgray"> for {{work.instrumentation}}</span></p>
-              {% for thing in work.soundcloud limit: 1 %}
-              <iframe style="margin-top:10px; margin-bottom: 20px;" width="100%" height="150" scrolling="no" frameborder="no" src="{{ thing.url }}"></iframe>
-              {% endfor %}
-              {% endif %}
-              {% endif %}
-              {% endfor %}
-              {% endfor %}
+                <h3>Short Bio</h3>
+                <p><b>Kian Ravaei</b> composes music that delivers heartfelt directness, bold melodies, and visceral power. His growing body of work has often been praised for combining rigorous compositional technique with naturalness and penetrating emotion. Born in 1999 of Iranian immigrants, Ravaei spent his childhood playing jazz, producing electronic dance music, and singing in a rock band when he should have been practicing piano sonatas. Ravaei's music has been performed by leading musicians and commissioned by notable organizations such as the <b>Canadian Music Centre</b> and <b>Salastina</b>. He makes his home in Los Angeles, where he serves as a Composer Teaching Artist Fellow for the <b>Los Angeles Chamber Orchestra</b>, and studies music composition with <b>Richard Danielpour</b> — one of his favorite living composers — at the UCLA Herb Alpert School of Music.</p>
             </div>
         </aside>
     </div><!-- /.medium-4.columns -->

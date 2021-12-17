@@ -13,6 +13,7 @@ awards:
       award_url:
 orchestration: tbn/pf
 score_url: https://issuu.com/kianravaei/docs/00_duo_for_trombone_and_piano_-_piano_score
+hide: yes
 ---
 
 Composers of every generation have written pieces inspired by the vernacular music of their time. Bach wrote gigues and allemandes; Chopin wrote waltzes and mazurkas.

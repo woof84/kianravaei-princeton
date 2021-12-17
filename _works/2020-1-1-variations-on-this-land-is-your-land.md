@@ -17,6 +17,7 @@ show_meta: false
 header: no
 soundcloud: 
   - url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/676548509&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true
+hide: yes
 ---
 &quot;This Land is Your Land&quot; is simultaneously a patriotic hymn for schoolchildren, a rallying cry for immigrants, and, in Woody Guthrie’s original version, a sardonic protest song. But the message remains the same: America belongs to everyone, regardless of race, religion, or nationality.
 

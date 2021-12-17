@@ -25,6 +25,7 @@ youtube:
  - url-code: zyQewsUb5JA
  - url-code: ElYbwyxqb0w
  - url-code: 6nILx5F-HiA
+hide: yes
 ---
 
 <!--

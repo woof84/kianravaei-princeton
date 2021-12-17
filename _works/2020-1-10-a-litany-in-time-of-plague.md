@@ -13,6 +13,7 @@ awards:
       award_url: http://www.myo.org/myo-programs/emerging-composers-competition/
 language: English
 score_url: https://issuu.com/kianravaei/docs/ravaei_-_a_litany_in_time_of_plague
+hide: yes
 ---
 
 It is astonishing and unfortunate how aptly these lines of Thomas Nashe, composed over 400 years ago, speak to the condition of humanity in the midst of the COVID-19 pandemic.
