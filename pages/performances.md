@@ -3,6 +3,14 @@ layout: default
 title: "Performances"
 permalink: "/performances/"
 performances:
+  - performance_date: 24 MAR 2022
+    performance_title: Outcry
+    venue: TUTTI Festival at Denison University
+    city_state: Granville, OH
+  - performance_date: 29 JAN 2022
+    performance_title: Good Trouble - Premiere
+    venue: Oregon Bach Festival "Music of Hope & Resilience" Concert Series
+    performers: Fear No Music
   - performance_date: 13 JAN 2022
     performance_title: California Suite
     venue: UC Davis
