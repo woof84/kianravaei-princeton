@@ -7,7 +7,7 @@ performances:
     performance_title: Outcry
     venue: TUTTI Festival at Denison University
     city_state: Granville, OH
-  - performance_date: 26 Feb 2022
+  - performance_date: 26 FEB 2022
     performance_title: Good Trouble - Premiere
     venue: Oregon Bach Festival "Music of Hope & Resilience" Concert Series
     performers: Fear No Music
